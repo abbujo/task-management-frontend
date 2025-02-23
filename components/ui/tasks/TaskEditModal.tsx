@@ -21,6 +21,18 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge"; // Import Badge component
 
+interface Task {
+  id: number;
+  title: string;
+  projectId: string;
+  body: string;
+  assignees: string[];
+  labels: string[];
+  is_active: boolean;
+  is_repetitive: boolean;
+  repeat_frequency: "Weekly" | "Fortnightly" | "Monthly";
+}
+
 export default function TaskEditModal({
   open,
   onClose,
@@ -28,7 +40,7 @@ export default function TaskEditModal({
 }: {
   open: boolean;
   onClose: () => void;
-  task: any;
+  task: Task;
 }) {
   const [title, setTitle] = useState(task.title || "");
   const [body, setBody] = useState(task.body || "");

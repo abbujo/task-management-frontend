@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import apiClient from "@/lib/apiClient"; // Import mock API client
 
 export default function ProjectModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [name, setName] = useState("");

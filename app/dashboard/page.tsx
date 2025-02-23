@@ -8,9 +8,15 @@ import ProjectModal from "@/components/ui/ProjectModal";
 import TaskAddModal from "@/components/ui/tasks/TaskAddModal";
 import { Card, CardContent } from "@/components/ui/card";
 
+interface GitHubUser {
+  avatar_url: string;
+  name: string;
+  login: string;
+}
+
 export default function DashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<GitHubUser|null>(null);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [taskModalOpen, setTaskModalOpen] = useState(false);
 
@@ -29,11 +35,6 @@ export default function DashboardPage() {
         router.push("/login");
       });
   }, [router]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("github_token");
-    router.push("/login");
-  };
 
   if (!user) return <p>Loading...</p>;
 

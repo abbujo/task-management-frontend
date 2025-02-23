@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { fetchTasks, Task } from "@/api/tasks";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Eye, Edit, Trash } from "lucide-react";
@@ -16,8 +15,7 @@ export default function TasksPage() {
   const router = useRouter();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(true);
-
+  
   // Modal states
   const [addTaskModal, setAddTaskModal] = useState(false);
   const [editTask, setEditTask] = useState<Task | null>(null);
@@ -27,7 +25,6 @@ export default function TasksPage() {
   useEffect(() => {
     fetchTasks().then((data) => {
       setTasks(data);
-      setLoading(false);
     });
   }, []);
 

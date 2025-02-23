@@ -3,7 +3,20 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle } from "@/components/ui/dialog";
 
-export default function TaskViewModal({ open, onClose, task }: { open: boolean; onClose: () => void; task: any }) {
+interface Task {
+  id: number;
+  title: string;
+  projectId: string;
+  body: string;
+  assignees: string[];
+  labels: string[];
+  is_active: boolean;
+  is_repetitive: boolean;
+  repeat_frequency: "Weekly" | "Fortnightly" | "Monthly";
+}
+
+
+export default function TaskViewModal({ open, onClose, task }: { open: boolean; onClose: () => void; task: Task }) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent>
