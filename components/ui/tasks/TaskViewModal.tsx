@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle } from "
 interface Task {
   id: number;
   title: string;
-  projectId: string;
+  projectId: number;
   body: string;
   assignees: string[];
   labels: string[];

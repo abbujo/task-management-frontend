@@ -24,7 +24,7 @@ import { Badge } from "@/components/ui/badge"; // Import Badge component
 interface Task {
   id: number;
   title: string;
-  projectId: string;
+  projectId: number;
   body: string;
   assignees: string[];
   labels: string[];
@@ -44,7 +44,7 @@ export default function TaskEditModal({
 }) {
   const [title, setTitle] = useState(task.title || "");
   const [body, setBody] = useState(task.body || "");
-  const [projectId, setProjectId] = useState(task.projectId || "");
+  const [projectId, setProjectId] = useState(task.projectId || undefined);
   const [assignees, setAssignees] = useState(task.assignees?.join(", ") || "");
   const [labels, setLabels] = useState(task.labels?.join(", ") || "");
   const [labelArray, setLabelArray] = useState<string[]>(task.labels || []);
@@ -58,7 +58,7 @@ export default function TaskEditModal({
   useEffect(() => {
     setTitle(task.title || "");
     setBody(task.body || "");
-    setProjectId(task.projectId || "");
+    setProjectId(task.projectId || undefined);
     setAssignees(task.assignees?.join(", ") || "");
     setLabels(task.labels?.join(", ") || "");
     setLabelArray(task.labels || []);
@@ -85,7 +85,7 @@ export default function TaskEditModal({
       await updateTask(task.id, {
         title,
         body,
-        projectId: parseInt(projectId),
+        projectId: projectId,
         assignees: assignees ? assignees.split(",") : [],
         labels: labels ? labels.split(",") : [],
         is_active: isActive,
@@ -134,7 +134,7 @@ export default function TaskEditModal({
           <Input
             placeholder="Enter project ID"
             value={projectId}
-            onChange={(e) => setProjectId(e.target.value)}
+            onChange={(e) => setProjectId(Number(e.target.value))}
           />
         </div>
 
