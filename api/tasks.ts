@@ -9,7 +9,7 @@ export type Task = {
   labels: string[];
   is_active: boolean;
   is_repetitive: boolean;
-  repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly";
+  repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly" | null | undefined;
 };
 
 export const fetchTasksByProject = async (
@@ -49,7 +49,7 @@ export const createTask = async (task: {
   projectId: number;
   is_active: boolean;
   is_repetitive: boolean;
-  repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly";
+  repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly"| null | undefined;
 }) => {
   try {
     console.log("📡 Creating task...", task);
@@ -72,7 +72,7 @@ export const updateTask = async (
     labels?: string[];
     is_active?: boolean;
     is_repetitive?: boolean;
-    repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly";
+    repeat_frequency?: "Weekly" | "Fortnightly" | "Monthly"| null | undefined;
   }
 ) => {
   try {

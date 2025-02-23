@@ -30,7 +30,7 @@ interface Task {
   labels: string[];
   is_active: boolean;
   is_repetitive: boolean;
-  repeat_frequency: "Weekly" | "Fortnightly" | "Monthly";
+  repeat_frequency: "Weekly" | "Fortnightly" | "Monthly" | null | undefined;
 }
 
 export default function TaskEditModal({
