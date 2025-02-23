@@ -29,8 +29,8 @@ jobs:
 
       - name: Build Project
         run: |
-          export BASE_PATH=/task-management-frontend
-          export ASSET_PREFIX=/task-management-frontend
+          export NEXT_PUBLIC_BASE_PATH=/task-management-frontend
+          export NEXT_PUBLIC_ASSET_PREFIX=/task-management-frontend
           pnpm run build
           pnpm run export
 

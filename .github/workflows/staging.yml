@@ -29,10 +29,11 @@ jobs:
 
       - name: Build Project
         run: |
-          export BASE_PATH=/task-management-frontend/staging
-          export ASSET_PREFIX=/task-management-frontend/staging
+          export NEXT_PUBLIC_BASE_PATH=/task-management-frontend/staging
+          export NEXT_PUBLIC_ASSET_PREFIX=/task-management-frontend/staging
           pnpm run build
           pnpm run export
+
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
